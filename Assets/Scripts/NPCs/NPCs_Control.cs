@@ -4,13 +4,17 @@ using UnityEngine;
 
 public class NPCs_Control : MonoBehaviour
 {
-    public static int score = 0;
-    string order = "sisig";
+    public static string order = "sisig";
     public Transform sisigOrderObj;
     public Transform burgerOrderObj;
     public Transform checkObj;
     public Transform xObj;
-    
+
+    public AudioSource correctSound;
+    public AudioSource wrongSound;
+
+
+
     void Update()
     {
         if (order == "burger" && GameFlow.checkSign == "n" && GameFlow.xSign == "n" && GameFlow.burgerSign == "n" && GameFlow.sisigSign == "n"
@@ -27,55 +31,51 @@ public class NPCs_Control : MonoBehaviour
             Instantiate(sisigOrderObj, new Vector3(1.90f,2.63f,-3.45f), sisigOrderObj.rotation);
         }
     }
+
     void OnMouseDown()
     {
+
         if (order == "sisig")
         {
             if (GameFlow.sisigsilogOnHand == "y")
             {
                 GameFlow.destroySisigSilog = "y";
-                
                 GameFlow.destroySisigSign = "y";
 
+                AudioManager.Instance.Play(AudioManager.SoundType.Correct);
                 GameFlow.moveAway = "y";
-                //GameFlow.checkSign = "y";
-                score++;
+                Score_Control.AddPoint();
                 order = "burger";
             } 
 
             else if (GameFlow.burgersilogOnHand == "y")
             {
                 GameFlow.destroyBurgerSilog = "y";
-
-                //GameFlow.xSign = "y";
-                score--;
+                
+                AudioManager.Instance.Play(AudioManager.SoundType.Wrong);
+                Score_Control.MinusPoint();
             }
         }
 
-        if (order == "burger")
+        else if (order == "burger")
         {
             if (GameFlow.sisigsilogOnHand == "y")
             {
                 GameFlow.destroySisigSilog = "y";
-
-                //GameFlow.xSign = "y";
-                score--;
+                
+                AudioManager.Instance.Play(AudioManager.SoundType.Wrong);
+                Score_Control.MinusPoint();
             } 
-
             else if (GameFlow.burgersilogOnHand == "y")
             {
                 GameFlow.destroyBurgerSilog = "y";
-
-                GameFlow.destroyBurgerSign = "y";   
+                GameFlow.destroyBurgerSign = "y";  
+                
+                AudioManager.Instance.Play(AudioManager.SoundType.Correct);
                 GameFlow.moveAway = "y";
-                //GameFlow.checkSign = "y";
-                score++;
+                Score_Control.AddPoint();
                 order = "sisig";
             }
         }
-
-        Debug.Log(order);
-        Debug.Log(score);
-        
     }
 }

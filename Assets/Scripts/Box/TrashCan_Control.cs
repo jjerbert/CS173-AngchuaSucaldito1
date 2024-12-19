@@ -18,7 +18,7 @@ public class TrashCan_Control : MonoBehaviour
 
     void OnMouseDown()
     {
-        if (GameFlow.placePlate == "y")
+        if (GameFlow.placePlate == "y" && GameFlow.placeSisigPan == "n" && GameFlow.placeBurgerPan == "n" && GameFlow.placeEggPan == "n")
         {
             Debug.Log("Click");
             
@@ -26,6 +26,9 @@ public class TrashCan_Control : MonoBehaviour
             if (GameFlow.placeSisigPlate == "y") GameFlow.destroySisig = "y";
             if (GameFlow.placeEggPlate == "y") GameFlow.destroyEgg = "y";
             if (GameFlow.placeRicePlate == "y") GameFlow.destroyRice = "y";
+            if (GameFlow.sisigsilogOnHand == "y") GameFlow.destroySisigSilog = "y";
+            if (GameFlow.burgersilogOnHand == "y") GameFlow.destroyBurgerSilog = "y";
+
             //GameFlow.destroyPlate = "y";
             //GameFlow.destroySteam = "y";
             //if (GameFlow.burgersilogOnHand == "y") GameFlow.destroyBurgerSilog = "y";
@@ -38,6 +41,8 @@ public class TrashCan_Control : MonoBehaviour
             GameFlow.placeBurgerPlate = "n";
             GameFlow.placeSisigPlate = "n";
             GameFlow.placeRicePlate = "n";
+            GameFlow.sisigsilogOnHand = "n";
+            GameFlow.burgersilogOnHand = "n";
             //GameFlow.placePlate = "y";
             //GameFlow.sisigsilogOnHand = "n";
             //GameFlow.burgersilogOnHand = "n";

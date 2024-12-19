@@ -28,23 +28,26 @@ public class PlayerController : MonoBehaviour
 
     void Move()
     {
-        //find target velocity
-        Vector3 currentVelocity = rb.velocity;
-        Vector3 targetVelocity = new Vector3(move.x, 0, move.y);
-        currentVelocity.y = 0; // Ensure y-velocity is ignored
+        if (Score_Control.time < 60)
+        {
+            //find target velocity
+            Vector3 currentVelocity = rb.velocity;
+            Vector3 targetVelocity = new Vector3(move.x, 0, move.y);
+            currentVelocity.y = 0; // Ensure y-velocity is ignored
 
-        targetVelocity *= speed;
+            targetVelocity *= speed;
 
-        //align direction
-        targetVelocity = transform.TransformDirection(targetVelocity);
+            //align direction
+            targetVelocity = transform.TransformDirection(targetVelocity);
 
-        //calculate forces
-        Vector3 velocityChange = (targetVelocity - currentVelocity);
+            //calculate forces
+            Vector3 velocityChange = (targetVelocity - currentVelocity);
 
-        velocityChange = Vector3.ClampMagnitude(velocityChange, maxForce);
+            velocityChange = Vector3.ClampMagnitude(velocityChange, maxForce);
 
 
-        rb.AddForce(velocityChange, ForceMode.VelocityChange);
+            rb.AddForce(velocityChange, ForceMode.VelocityChange);
+        }
     }
 
     // Start is called before the first frame update
@@ -88,16 +91,20 @@ IEnumerator EnableColliderAfterDelay(float delay)
     // Update is called once per frame
     void LateUpdate()
     {
-        // Turn the player (left/right rotation)
-        rb.MoveRotation(rb.rotation * Quaternion.Euler(Vector3.up * look.x * sensitivity));
+        if(Score_Control.time < 60)
+        {
+            // Turn the player (left/right rotation)
+            rb.MoveRotation(rb.rotation * Quaternion.Euler(Vector3.up * look.x * sensitivity));
 
-        // Update and clamp the vertical look rotation (up/down)
-        lookRotation += -look.y * sensitivity;
-        lookRotation = Mathf.Clamp(lookRotation, -90f,50f); // Clamp between -90 (down) and 90 (up)
+            // Update and clamp the vertical look rotation (up/down)
+            lookRotation += -look.y * sensitivity;
+            lookRotation = Mathf.Clamp(lookRotation, -90f,50f); // Clamp between -90 (down) and 90 (up)
 
-        // Apply the rotation explicitly on the x-axis, preserve other axes
-        Quaternion cameraRotation = Quaternion.Euler(lookRotation, 0f, 0f);
-        camHolder.transform.localRotation = cameraRotation;
+            // Apply the rotation explicitly on the x-axis, preserve other axes
+            Quaternion cameraRotation = Quaternion.Euler(lookRotation, 0f, 0f);
+            camHolder.transform.localRotation = cameraRotation;
+        }
+
     }
 
 

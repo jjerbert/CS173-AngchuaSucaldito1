@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class GameFlow : MonoBehaviour
 {
+
+
     public static string atCounter = "n";
     public static string moveAway= "n";
     public static string spawnNew = "y";
@@ -38,16 +40,4 @@ public class GameFlow : MonoBehaviour
     public static string xSign = "n";
     public static string burgerSign = "n";
     public static string sisigSign = "n";
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

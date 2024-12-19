@@ -81,6 +81,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 664e6998ef92f4f468a6439ccee9e128, type: 3}
       insertIndex: -1
       addedObject: {fileID: 6680228364486586585}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 664e6998ef92f4f468a6439ccee9e128, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 160127294270984383}
   m_SourcePrefab: {fileID: 100100000, guid: 664e6998ef92f4f468a6439ccee9e128, type: 3}
 --- !u!1 &582185352388296064 stripped
 GameObject:
@@ -103,6 +106,8 @@ MonoBehaviour:
   burgerOrderObj: {fileID: 2725699096393915983, guid: 7abf67a3a51fa714a941a7de2df7eb36, type: 3}
   checkObj: {fileID: 3621600735607301946, guid: 946a986baf364f743a3038cb1c5ffec3, type: 3}
   xObj: {fileID: 2481414430468168449, guid: a4ef2aa3693913249a9441b573a59cab, type: 3}
+  correctSound: {fileID: 259649742097800818, guid: 1c69147cb70d230419c6d55e7e7de7ba, type: 3}
+  wrongSound: {fileID: 7138003249125820373, guid: 78b91e4f02301b649b628febb52e4056, type: 3}
 --- !u!65 &5958234166653413746
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -134,6 +139,21 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 922a2c66d7d926544a0774f1db4d7fd6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  npcObj: {fileID: 582185352388296064}
+  counterObj: {fileID: 0}
+  speed: 0.02
+--- !u!114 &160127294270984383
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 582185352388296064}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d74e8a27218f782468858af5bfd25251, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   npcObj: {fileID: 582185352388296064}
