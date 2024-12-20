@@ -22,7 +22,7 @@ public class Score_Control : MonoBehaviour
     {
         time += Time.deltaTime;
         
-        if(time >= 15)
+        if(time >= 60)
         {
             time = 60.00f;
             SceneManager.LoadScene(2);
