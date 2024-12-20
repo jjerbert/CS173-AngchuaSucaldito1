@@ -13,22 +13,23 @@ public class Score_Control : MonoBehaviour
     public static int score = 0;
     public GameOverScreen GameOverScreen;
     // Start is called before the first frame update
+    
     void Start()
     {
-    
+        time = 0;
     }
-
     void Update()
     {
         time += Time.deltaTime;
-
-        if(time >= 2)
+        
+        if(time >= 15)
         {
             time = 60.00f;
-            GameOverScreen.Setup(score);
+            SceneManager.LoadScene(2);
+            return;
         }
 
-        scoreText.text = "SCORE: " + score.ToString();
+        scoreText.text = "SCORE: " + GameManager.Instance.score.ToString();
         timeText.text = "TIME: " + time.ToString("F2");
         
     
@@ -36,20 +37,20 @@ public class Score_Control : MonoBehaviour
 
     public static void AddPoint()
     {
-        score++;
+        GameManager.Instance.score++;
     }
     public static void MinusPoint()
     {
-        score--;
+        GameManager.Instance.score--;
     }
 
-    public void QuitGame ()
+    public void QuitGameIn ()
     {
         Debug.Log("QUIT!"); 
         Application.Quit();
     }
 
-    public void MenuScreen()
+    public void MenuScreenIn ()
     {
         Debug.Log("Click");
         SceneManager.LoadScene("MainMenu");

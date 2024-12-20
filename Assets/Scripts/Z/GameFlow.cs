@@ -4,12 +4,9 @@ using UnityEngine;
 
 public class GameFlow : MonoBehaviour
 {
-
-
     public static string atCounter = "n";
     public static string moveAway= "n";
     public static string spawnNew = "y";
-    public static int playerScore = 0;
     public static string placeEggPan = "n";
     public static string placeSisigPan = "n";
     public static string placeBurgerPan = "n";
@@ -32,7 +29,7 @@ public class GameFlow : MonoBehaviour
     public static string burgersilogOnHand = "n";
     public static string sisigsilogOnHand = "n";
     ///
-    public static int timer = 1;
+    public static int timer = 4;
 
     public static string destroyBurgerSign = "n";
     public static string destroySisigSign = "n";
@@ -40,4 +37,6 @@ public class GameFlow : MonoBehaviour
     public static string xSign = "n";
     public static string burgerSign = "n";
     public static string sisigSign = "n";
+
+    public static int score = 0;
 }

@@ -17,18 +17,19 @@ public class GameOverScreen : MonoBehaviour
     }
     public void Setup(int score)
     {
+        Debug.Log(1);
         gameObject.SetActive(true);
         pointsText.text = "SCORE: " + score.ToString();
     }
     public void QuitGame ()
     {
-        Application.Quit();
         Debug.Log("QUIT!");
+        Application.Quit();
     }
 
     public void MenuScreen()
     {
-        SceneManager.LoadScene("MainMenu");
         Debug.Log("Main Menu");
+        SceneManager.LoadScene("MainMenu");
     }
 }
